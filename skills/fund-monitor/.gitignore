@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+data/*.test.yaml
+# 真实持仓 (含份额/余额) 不提交 — 从 references/config-example.yaml 复制创建
+data/portfolio.yaml

@@ -1,0 +1,62 @@
+# fund-monitor 组合配置示例 (config-example.yaml)
+# ---------------------------------------------------------------------------
+# 用法: 复制本文件为 ../data/portfolio.yaml 并填入你的真实持仓。
+#       (脚本默认读写 data/portfolio.yaml; 本模板文件不会被 update 命令改写,
+#        因此注释得以保留。)
+#
+# 字段说明:
+#   target_assets : 资产类别目标配比(%)。穿透每只基金的内部资产后, 按大类
+#                   (股/债/金/现金 ...) 汇总并对照此目标检测偏离。建议求和=100。
+#                   键可用英文 stock/bond/gold/cash (报告自动显示中文), 也可自定义。
+#   threshold_pct : 偏离阈值, 单位=百分点(pp)。当某资产类别 |实际-目标| > 阈值
+#                   时触发再平衡提醒。可被 CLI 的 --threshold 覆盖。
+#   balance       : 支付宝余额宝等流动性现金(元), 自动计入 cash 类。
+#                   买卖后用 `python scripts/portfolio.py update --balance N` 更新。
+#   funds         : 你持有的每只基金:
+#                     code   基金代码(字符串, 保留前导 0)
+#                     name   基金名称(仅作显示)
+#                     shares 持有份额, 买卖后用
+#                            `python scripts/portfolio.py update <code> --shares N` 更新
+#                     assets 该基金内部资产构成(%), 求和≈100。复合基金可多项,
+#                            如 { bond: 80, stock: 20 }; 纯基金如 { gold: 100 }。
+#                            未填或求和<100 的部分会归入「未分类」。
+#
+# 净值数据来自天天基金公开接口(http://fundgz.1234567.com.cn), 无需登录, 只需基金代码。
+# ---------------------------------------------------------------------------
+
+# 资产类别目标配比 (求和≈100)
+target_assets:
+  stock: 30                 # 股票
+  bond: 40                  # 债券
+  gold: 15                  # 黄金
+  cash: 15                  # 现金 (含支付宝余额)
+
+threshold_pct: 5            # 偏离阈值 (百分点)
+
+balance: 5000.0            # 支付宝流动性现金 (元)
+
+funds:
+  - code: "000961"          # 基金代码 (字符串, 保留前导 0)
+    name: "天弘沪深300指数A"  # 国内权益
+    shares: 0               # 持有份额 (买入/卖出后更新)
+    assets: { stock: 100 }  # 资产构成 (%)
+
+  - code: "000478"
+    name: "建信转债增强债券A"  # 可转债增强: 债为主 + 少量权益 (复合基金示例)
+    shares: 0
+    assets: { bond: 80, stock: 20 }
+
+  - code: "000216"
+    name: "华安黄金易ETF联接A"  # 黄金
+    shares: 0
+    assets: { gold: 100 }
+
+  - code: "110011"
+    name: "易方达优质精选混合(QDII)"  # QDII 权益
+    shares: 0
+    assets: { stock: 100 }
+
+  - code: "270042"
+    name: "广发纳斯达克100指数(QDII)"  # 海外权益
+    shares: 0
+    assets: { stock: 100 }

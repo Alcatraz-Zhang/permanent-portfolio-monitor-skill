@@ -1,0 +1,2 @@
+# 保留 data/ 目录。真实数据文件 data/portfolio.yaml 已被 .gitignore 忽略。
+# 首次使用: 复制 ../references/config-example.yaml 为 portfolio.yaml 并填入持仓。
