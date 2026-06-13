@@ -1,4 +1,4 @@
-# fund-monitor 组合配置示例 (config-example.yaml)
+# permanent-portfolio-monitor 组合配置示例 (config-example.yaml)
 # ---------------------------------------------------------------------------
 # 用法: 复制本文件为 ../data/portfolio.yaml 并填入你的真实持仓。
 #       (脚本默认读写 data/portfolio.yaml; 本模板文件不会被 update 命令改写,

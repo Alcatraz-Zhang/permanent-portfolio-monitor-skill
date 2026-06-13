@@ -1,10 +1,10 @@
-# Fund Monitor Skills
+# Permanent Portfolio Monitor Skills
 
 一个技能仓库，包含基金组合监控相关的 OpenCode Skills。
 
 ## Skills
 
-### [fund-monitor](skills/fund-monitor/)
+### [permanent-portfolio-monitor](skills/permanent-portfolio-monitor/)
 
 基金组合资产穿透监控与再平衡建议。
 
@@ -17,7 +17,7 @@
 
 **使用:**
 ```bash
-cd skills/fund-monitor
+cd skills/permanent-portfolio-monitor
 python scripts/portfolio.py status     # 组合状态
 python scripts/portfolio.py check      # 偏离检测
 python scripts/portfolio.py quote 110011  # 单只基金
@@ -35,7 +35,7 @@ python -m pytest tests/ -v
 
 ```
 ├── skills/
-│   └── fund-monitor/          # fund-monitor skill
+│   └── permanent-portfolio-monitor/          # permanent-portfolio-monitor skill
 │       ├── SKILL.md           # Skill 描述
 │       ├── scripts/
 │       │   └── portfolio.py   # 核心 CLI
@@ -50,4 +50,4 @@ python -m pytest tests/ -v
 ## 注意事项
 
 - `data/portfolio.yaml` 包含真实持仓数据，已被 `.gitignore` 忽略，不会提交到仓库。
-- 首次使用请参考 `skills/fund-monitor/references/config-example.yaml`。
+- 首次使用请参考 `skills/permanent-portfolio-monitor/references/config-example.yaml`。

@@ -1,4 +1,4 @@
-# fund-monitor 资产穿透设计 (v0.2.0)
+# permanent-portfolio-monitor 资产穿透设计 (v0.2.0)
 
 > 状态：已与用户确认（2026-06-11）。本文件为实现依据。
 

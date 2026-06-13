@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""fund-monitor — 基金组合资产穿透监控 CLI.
+"""permanent-portfolio-monitor — 基金组合资产穿透监控 CLI.
 
 Subcommands: status | quote | update | check
 
@@ -180,7 +180,7 @@ def _resolve_config_path(path=None):
     """Resolve the config path: explicit arg > env var > default data file."""
     if path:
         return Path(path)
-    env = os.environ.get("FUND_MONITOR_CONFIG")
+    env = os.environ.get("PERMANENT_PORTFOLIO_MONITOR_CONFIG")
     if env:
         return Path(env)
     return DATA_PATH
@@ -633,7 +633,7 @@ def cmd_check(args):
 def build_parser():
     parser = argparse.ArgumentParser(
         prog="portfolio.py",
-        description="fund-monitor: 支付宝全天候基金组合的资产穿透与配比监控",
+        description="permanent-portfolio-monitor: 支付宝全天候基金组合的资产穿透与配比监控",
     )
     sub = parser.add_subparsers(dest="command", required=True)
 

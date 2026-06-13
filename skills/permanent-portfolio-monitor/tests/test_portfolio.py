@@ -1,4 +1,4 @@
-"""Offline test suite for scripts/portfolio.py (fund-monitor).
+"""Offline test suite for scripts/portfolio.py (permanent-portfolio-monitor).
 
 ALL network access is mocked via unittest.mock.patch. These tests never touch
 the real fundgz / eastmoney endpoints. Run from the skill root:
@@ -336,7 +336,7 @@ def test_load_config_path_precedence(tmp_path):  # S11
     p2 = tmp_path / "b.yaml"
     p2.write_text("threshold_pct: 9\nbalance: 200\nfunds: []\n", encoding="utf-8")
     assert portfolio.load_config(str(p1))["threshold_pct"] == 3
-    with mock.patch.dict(os.environ, {"FUND_MONITOR_CONFIG": str(p2)}):
+    with mock.patch.dict(os.environ, {"PERMANENT_PORTFOLIO_MONITOR_CONFIG": str(p2)}):
         assert portfolio.load_config()["threshold_pct"] == 9
         assert portfolio.load_config(str(p1))["threshold_pct"] == 3
 

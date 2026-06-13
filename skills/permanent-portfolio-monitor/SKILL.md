@@ -1,12 +1,12 @@
 ---
-name: fund-monitor
+name: permanent-portfolio-monitor
 description: Use when monitoring Alipay (支付宝) mutual fund portfolios, checking real-time NAV/valuation (基金净值/估值), and tracking TRUE asset-class exposure via look-through (股/债/金/现金 穿透) for all-weather or permanent portfolios (全天候/永久组合). Decomposes composite funds into stock/bond/gold/cash, detects asset-class allocation drift against targets, and emits rebalancing alerts mapped to concrete fund buy/sell actions (再平衡提醒). Uses Tiantian Fund (天天基金) and Eastmoney (东方财富) public data; supports manual holding updates and automated cron health checks.
 ---
 
-# Fund Monitor
+# Permanent Portfolio Monitor
 
 ## 概述
-`fund-monitor` 监控支付宝（Alipay）持仓基金组合。支付宝无公开交易 API，故手动维护持仓份额，结合天天基金/东方财富公开净值接口，实现：组合市值实时估算、**资产类别穿透**（把每只基金按其内部 股/债/金 构成拆分汇总）、对照目标资产配比的偏离检测，以及**落到具体基金**的再平衡建议。
+`permanent-portfolio-monitor` 监控支付宝（Alipay）持仓基金组合。支付宝无公开交易 API，故手动维护持仓份额，结合天天基金/东方财富公开净值接口，实现：组合市值实时估算、**资产类别穿透**（把每只基金按其内部 股/债/金 构成拆分汇总）、对照目标资产配比的偏离检测，以及**落到具体基金**的再平衡建议。
 
 ## 何时使用
 - **实时估值查询**：盘中查看单只基金估算涨跌幅（gszzl）。
@@ -15,7 +15,7 @@ description: Use when monitoring Alipay (支付宝) mutual fund portfolios, chec
 - **自动化监控**：cron 定时检测，资产类别偏离超阈值时告警并给出基金操作建议。
 
 ## 快速参考 (CLI)
-所有命令默认读取 `data/portfolio.yaml`，可用 `--config <path>` 或环境变量 `FUND_MONITOR_CONFIG` 覆盖。
+所有命令默认读取 `data/portfolio.yaml`，可用 `--config <path>` 或环境变量 `PERMANENT_PORTFOLIO_MONITOR_CONFIG` 覆盖。
 
 ### 1. 组合状态（资产穿透 + 持仓）
 ```bash
